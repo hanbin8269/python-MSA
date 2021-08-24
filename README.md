@@ -26,6 +26,7 @@ admin app과 main app을 제작할 것인데, admin app은 django, main app은 f
 그렇기 때문에 몇가지 문제가 있다.
 1. 하나의 언어로만 작성 되어야함 (python, java, go etc.)
 2. scale up을 하려면 모든 기능(트래픽이 적은 기능도)을 복제해야함
+3. 하나의 기능에서 장애가 발생하면 모든 기능이 다운된다.
 
 ### 마이크로 서비스 앱
 마이크로 서비스는 
