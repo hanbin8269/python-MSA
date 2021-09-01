@@ -6,7 +6,7 @@ python과 react를 이용한 microservice example을 만들어 보고 모놀리�
 admin app과 main app을 제작할 것인데, admin app은 django, main app은 flask로 개발할 것이다.
 
 - 각 기능마다 mysql 데이터베이스를 가지고 있고
-- rabbitmq event로 기능끼리 통신 할 것이며
+- rabbitmq event로 정보를 교환할 것이며
 - main app은 admin app에게 내부적으로 api 요청을 보낼 것이다.
 
 
@@ -37,3 +37,9 @@ admin app과 main app을 제작할 것인데, admin app은 django, main app은 f
 이런 특성은 여러 장점을 가진다.
 1. 만약 검색 기능에 많은 트래픽이 발생하여 scale up 하고 싶다면 검색 기능 인스턴스만 scale up 하면 된다.
 2. 각 기능 별로 다른 언어로 개발할 수 있다.
+3. 하나의 기능에서 장애가 발생해도 다른 기능에 영향을 끼치지 않는다.
+
+
+### auto_ack = True?
+auto_ack이 True로 되어있을 때는 queue에 message가 들어오면 해당 queue를 바라보고 있는 Consumer에 전달이 되고,
+이때 
