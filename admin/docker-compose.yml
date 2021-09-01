@@ -5,12 +5,21 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: 'python manage.py runserver 0.0.0.0:8000'
     ports:
       - 8000:8000
     volumes:
       - .:/app
-    depends_on: 
+    depends_on:
       - db
+
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: 'python consumer.py'
+    depends_on:
+     - db
     
   db:
     image: mysql:5.7.22
