@@ -1,4 +1,9 @@
-import pika
+import os, json, pika, django
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "admin.settings")
+django.setup()
+from products.models import Product
+
 
 params = pika.URLParameters(
     "amqps://uscxskut:u7NotCYJ5gcIWx3Abh3XYa5VLgKoLIbK@dingo.rmq.cloudamqp.com/uscxskut"
